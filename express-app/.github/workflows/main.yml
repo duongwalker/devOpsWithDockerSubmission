@@ -20,5 +20,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: yourdockerhubuser/express-app:latest
+          tags: duonghoang711/express-app:latest
 
