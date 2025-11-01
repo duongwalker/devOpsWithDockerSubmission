@@ -1,37 +1,40 @@
 # DevOps with Docker: Exercises 3.1 & 3.2
 
-## Exercise 3.1: Cloud Deployment
+## Exercise 3.1: Containerized Application Deployment
 
-This repository contains a containerized Node.js application deployed to Heroku using Docker.
+This part of the repository contains the containerized application created for Exercise 3.1. 
 
-**Live application:**  
-[https://floating-sands-13705-f9e0633cfd98.herokuapp.com/](https://floating-sands-13705-f9e0633cfd98.herokuapp.com/)  
+### Description
+
+- The application is prepared as a Docker container.
+- The goal was to build and run the container locally or on any Docker-compatible environment.
+- The Dockerfile and related setup are included for building the container.
 
 ### How to run locally
 
-1. Clone the repository:
-    ```
-    git clone https://github.com/your-username/devOpsWithDockerSubmission.git
-    cd devOpsWithDockerSubmission/express-app
-    ```
-2. Build and run the Docker container:
-    ```
-    docker build -t hello-docker .
-    docker run -p 3000:3000 hello-docker
-    ```
-3. Visit [http://localhost:3000](http://localhost:3000) to view the app.
+1. Clone the repository.
+2. Navigate to the application directory for this exercise.
+3. Build the Docker image: `docker build -t your-app-name .`
+4. Run the container exposing the relevant port: `docker run -p 3000:3000 your-app-name`
+5. Access the app locally at `http://localhost:3000`.
 
 ---
 
-## Exercise 3.2: Deployment Pipeline (CI/CD)
+## Exercise 3.2: Deployment Pipeline to a Cloud Service (Extension of Exercise 1.16)
 
-A GitHub Actions workflow is set up to automatically deploy the app to Heroku on every push to the `main` branch, using Docker.
+This part extends Exercise 1.16 where a containerized app was initially deployed to Heroku.
 
-- The workflow file is located at: `.github/workflows/deploy.yml`
-- Sensitive credentials and app settings are configured as GitHub repository secrets.
+- A GitHub Actions workflow pipeline is set up in `.github/workflows/deploy.yml`.
+- The pipeline automatically builds and deploys the Dockerized app to Heroku on every push to the `main` branch.
+- Heroku application URL:
 
-**Pipeline behavior:**  
-- Each push to the `main` branch triggers a CI/CD pipeline.
-- The pipeline builds the Docker image and redeploys the app to Heroku.
+[https://floating-sands-13705-f9e0633cfd98.herokuapp.com/](https://floating-sands-13705-f9e0633cfd98.herokuapp.com/)
+
+### Pipeline behavior
+
+- Triggers on every push to `main`.
+- Builds the Docker image.
+- Deploys the updated container to Heroku.
 
 ---
+
